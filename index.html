@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GeradorQRcode</title>
 </head>
 <!-- Estilos -->
  <link rel="stylesheet" href="css/style.css">
 
  <!-- script -->
   <script src="js/script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <body>
     <div class="container">
       <header id="qr-header" class="qr-header">
-        <h1>Gerar um QR Code</h1>
+        <h1>Gerador de QR Code</h1>
         <p>Insira um texto ou URL para gerar um QRcode</p>
-        <div id="qr-input">
+        <div id="qr-form">
           <input type="text" placeholder="Dígite a URL ou texto...">
           <button>Enviar</button>
         </div>
       </header>
-      <div class="qr-code">
-        <img src="qr.png" alt="">
+      <div id="qr-code">
+        <img src="" alt="">
       </div>
     </div>
 </body>
