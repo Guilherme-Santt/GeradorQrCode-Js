@@ -7,21 +7,19 @@ const body       = document.querySelector('body')
 
 // ================> FUNÇÕES <====================
 const AlertErro = (descricao) => {
-
     Swal.fire({
         icon: 'error',
         title: `${descricao}`,
-        // text: 'Verifique os campos preenchidos',
         confirmButtonText: 'Fechar'})
-};
+}
 
 const AlertSucess = (descricao) =>{
     Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: `${descricao}`,
         showConfirmButton: false,
-        timer: 1300
+        timer: 1000
       });
 }
 
@@ -30,8 +28,9 @@ function GeradorQrcode(){
     const ValorInput = input.value
     if(!ValorInput){
         AlertErro("Campo obrigatório")
-        return;
-    } 
+        console.log("Campo não preenchido.")
+        return
+    }
     btn.innerHTML = "Gerando código..."
     qrcode.src    = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${ValorInput}`
 
@@ -40,15 +39,13 @@ function GeradorQrcode(){
         container.classList.add("active")
         btn.innerHTML = "Código Gerado!"
         AlertSucess("Gerado com sucesso!")
+        console.log("QRCode Gerado com sucesso!")
     })
-
-
 }
 
 // ==============> EVENTOS <====================
 btn.addEventListener('click', () => {
-    GeradorQrcode()
-    
+    GeradorQrcode()    
 });
 
 input.addEventListener('keydown', (e) => {
@@ -64,5 +61,6 @@ input.addEventListener("keyup", () => {
         container.classList.remove("active")
         body.style.height = "80vh"
         btn.innerHTML = "Enviar"
+        console.log("Limpando input.")
     }
 })
